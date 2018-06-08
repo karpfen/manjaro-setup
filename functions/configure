@@ -1,0 +1,53 @@
+#!/bin/bash
+
+function preferences {
+    set_preferences
+    # Done
+    show_success 'Done.'
+    whiptail --title "Finished" --msgbox "Settings changed successfully." 8 78
+    configure
+}
+
+# dot files copy
+function dotfiles_cp {
+    show_info 'Copying dot files to home directory...'
+    cp ../dot/.bash_aliases "$HOME/"
+    cp ../dot/.Rprofile "$HOME/"
+    cp ../dot/.bashrc "$HOME/"
+    cp ../dot/.vimrc "$HOME/"
+    cp ../dot/.tmux.conf "$HOME/"
+    cp ../dot/.gitconfig "$HOME/"
+    cp ../dot/.inputrc "$HOME/"
+
+    show_success 'Done.'
+    whiptail --title "Finished" --msgbox "dot files copied successfully." 8 78
+    configure
+}
+
+# todo list
+function todo_cp {
+    cp -r ../dot/.todo "$HOME/"
+    show_success 'Copied todo config to home directory.'
+}
+
+# Configure System
+function configure {
+    eval `resize`
+    CONF=$(whiptail \
+        --notags \
+        --title "Configure System" \
+        --menu "\nWhat would you like to do?" \
+        --cancel-button "Go Back" \
+        $LINES $COLUMNS $(( $LINES - 12 )) \
+        preferences '1. Set preferred application-specific & desktop settings' \
+        dotfiles_cp '2. Copy dot files to home directory' \
+        todo_cp '3. Copy todo-txt configuration to home directory' \
+        3>&1 2>&2 1>&3)
+     
+    exitstatus=$?
+    if [ $exitstatus = 0 ]; then
+        $CONF
+    else
+        main
+    fi
+}
