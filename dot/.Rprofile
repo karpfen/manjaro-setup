@@ -7,8 +7,7 @@ local ({
 # http://stackoverflow.com/questions/24387660/how-to-change-libpaths-permanently-in-r
 # Note that the order of these has to be reversed for initial installation of
 # nvimcom, then they can be reset.
-.libPaths(c ('~/R/x86_64-pc-linux-gnu-library/3.3', .libPaths ()))
-.libPaths(c ('/usr/local/lib/R/site-library', .libPaths ()))
+.libPaths(c ('~/R/lib/', .libPaths ()))
  
 #options (stringsAsFactors=FALSE)
 #options (max.print=100)
@@ -34,13 +33,13 @@ attach(.env)
         #        options (defaultPackages = c ("utils", "grDevices", "graphics",
         #            "stats", "methods", "nvimcom"))
 
-        if ('colorout' %in% rownames (utils::installed.packages ()))
-        {
-            library (colorout)
-            setOutputColors (negnum = 52, zero = 236, number = 236, normal = 24,
-                             verbose = FALSE, true = 29, false = 52, date = 3,
-                             string = 22)
-        }
+        #if ('colorout' %in% rownames (utils::installed.packages ()))
+        #{
+        #    library (colorout)
+        #    setOutputColors (negnum = 52, zero = 236, number = 236, normal = 24,
+        #                     verbose = FALSE, true = 29, false = 52, date = 3,
+        #                     string = 22)
+        #}
 
         rv <- R.Version ()$version.string
         rn <- R.Version ()$nickname
@@ -91,7 +90,7 @@ attach(.env)
 }
 
 
-if(Sys.getenv('TERM') == 'xterm-256color')
-    library('colorout')
+#if(Sys.getenv('TERM') == 'xterm-256color')
+#    library('colorout')
 Sys.setenv("PKG_CXXFLAGS"="-fopenmp")
 Sys.setenv("PKG_LIBS"="-fopenmp")
