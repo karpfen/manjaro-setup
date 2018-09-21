@@ -2,6 +2,10 @@
 # ~/.bashrc
 #
 
+if [ -n "$DISPLAY" ]; then
+  xset b off
+fi
+
 [[ $- != *i* ]] && return
 
 export QT_SCALE_FACTOR=1
