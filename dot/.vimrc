@@ -18,6 +18,9 @@ Plugin 'dpelle/vim-LanguageTool'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'chrisbra/csv.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'davidhalter/jedi-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -44,7 +47,6 @@ let g:airline_symbols.readonly = ''
 if has("syntax")
     syntax enable
 endif
-
 
 if has("autocmd")
     " Jump to the last position when reopening a file
@@ -110,3 +112,45 @@ nmap gp :lprevious<CR>
 
 " insert timestamp to document
 nnoremap <buffer> <F4> :r! date "+\%Y-\%m-\%d \%H:\%M:\%S"<cr>
+
+" autocomplete nested parantheses, etc.
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap } <c-r>=ClosePair('}')<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
+
+function ClosePair(char)
+ if getline('.')[col('.') - 1] == a:char
+ return "\<Right>"
+ else
+ return a:char
+ endif
+endf
+
+function CloseBracket()
+ if match(getline(line('.') + 1), '\s*}') < 0
+ return "\<CR>}"
+ else
+ return "\<Esc>j0f}a"
+ endif
+endf
+
+function QuoteDelim(char)
+ let line = getline('.')
+ let col = col('.')
+ if line[col - 2] == "\\"
+ "Inserting a quoted quotation mark into the string
+ return a:char
+ elseif line[col - 1] == a:char
+ "Escaping out of the string
+ return "\<Right>"
+ else
+ "Starting a string
+ return a:char.a:char."\<Esc>i"
+ endif
+endf

@@ -7,7 +7,8 @@ local ({
 # http://stackoverflow.com/questions/24387660/how-to-change-libpaths-permanently-in-r
 # Note that the order of these has to be reversed for initial installation of
 # nvimcom, then they can be reset.
-.libPaths(c ('~/R/lib/', .libPaths ()))
+#.libPaths (c ('~/.R-libs/', .libPaths ()))
+.libPaths (c ('~/.R-libs/'))
  
 #options (stringsAsFactors=FALSE)
 #options (max.print=100)
@@ -49,7 +50,7 @@ attach(.env)
 
         lns <- list ()
         lns [[1]] <- paste0 (rv, '--- \'', rn, '\'')
-        lns [[2]] <- paste0 ('Debian ', ss, ' (kernel ', rsys ['release'], ')')
+        lns [[2]] <- paste0 (rsys ['release'])
         lns [[3]] <- paste0 ('machine = ', rpl, ': ', rsys ['nodename'])
         lns [[4]] <- paste0 ('wd: ', getwd ())
         lns <- sapply (lns, function (i)
