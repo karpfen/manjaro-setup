@@ -1,26 +1,18 @@
-adehabitatLT # packages can contain comments
-alphahull
-animation
-bitops
-changepoint
-chron
-CircStats
-codetools
-combinat
-cubature
+OpenStreetMap
+RANN
+RPostgreSQL
+RSQLite
+Rcpp
+RcppArmadillo
 data.table
 devtools
 distr
 dplyr
-extrafont
-fAsianOptions
-fields
-fpc
+gganimate
 ggm
 ggmap
 gridBase
 hexbin
-httr
 igraph
 kerasR
 knitr
@@ -30,40 +22,20 @@ magick
 magrittr
 maptools
 microbenchmark
-MODIStsp
-msm
-nabor # stplanr dep
-OpenStreetMap
 openxlsx
 osmar
+osmdata
 parallel
 plyr
-poweRlaw
 pracma
 quanteda
-quantreg
-R2Cuba
-RANN
-raster 
-Rclusterpp
-Rcpp
-RcppArmadillo # stplanr dep
-RCurl
-rdataretriever
-readtext
-readxl
-rgdal
-rgeos
-rgl
-RgoogleMaps # stplanr dep
 rJava
+raster 
+rgdal
+rgl
 rjson
 rmarkdown
 roxygen2 
-RPostgreSQL
-RSQLite
-rts
-R.utils # stplanr dep
 rvest
 sf
 signal
@@ -78,8 +50,5 @@ tinytex
 tmap
 topicmodels
 tripack
-units # sf dep
-VGAM
-XML
 xml2
 yaml
