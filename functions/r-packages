@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Install packages listed in 'data/r-packages.list'
+function rpackages
+{
+    while read F ; do
+        CMD='install.packages('\"$F\"')'
+        echo  Rscript --verbose -e $CMD
+    done < $RPKGS
+
+    show_success 'Done.'
+
+    whiptail --title "Finished" --msgbox "All R packages installed." 8 78
+    main
+}

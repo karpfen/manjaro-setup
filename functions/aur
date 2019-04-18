@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Install packages listed in 'data/aur-packages.list'
+function aurpackages
+{
+    while read F ; do
+        yay -S --noconfirm "$F"
+    done < $AURPKGS
+
+    show_success 'Done.'
+
+    whiptail --title "Finished" --msgbox "All AUR packages installed." 8 78
+    main
+}

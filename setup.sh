@@ -58,16 +58,14 @@ DIR="$(dirname "$0")"
 
 . $DIR/functions/variables
 
-. $DIR/functions/check
-. $DIR/functions/cleanup
 . $DIR/functions/configure
 . $DIR/functions/doall
-. $DIR/functions/nonapt
 . $DIR/functions/packages
+. $DIR/functions/aur
+. $DIR/functions/r-packages
 
 # Main
 function main {
-    eval `resize`
     MAIN=$(whiptail \
         --notags \
         --title "Manjaro System Setup" \
@@ -76,9 +74,9 @@ function main {
         $LINES $COLUMNS $(( $LINES - 12 )) \
         doall       '1. Do all (non-interactive)' \
         packages    '2. Install pacman packages' \
-        nonapt      '3. Install non-apt packages' \
-        configure   '4. Configure system' \
-        cleanup     '5. Cleanup the system' \
+        aurpackages '3. Install AUR packages' \
+        rpackages   '4. Install R packages' \
+        configure   '5. Configure system' \
         3>&1 1>&2 2>&3)
      
     exitstatus=$?
