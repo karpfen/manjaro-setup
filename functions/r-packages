@@ -5,7 +5,7 @@ function rpackages
 {
     while read F ; do
         CMD='install.packages('\"$F\"')'
-        echo  Rscript --verbose -e $CMD
+        Rscript --verbose -e $CMD
     done < $RPKGS
 
     show_success 'Done.'
