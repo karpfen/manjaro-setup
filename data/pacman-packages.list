@@ -1,6 +1,8 @@
 at
+audacity
 blender
 borg
+chromium
 cmake
 curl
 davfs2
@@ -8,6 +10,7 @@ dos2unix
 ffmpeg
 filezilla
 flameshot
+gcc-fortran
 gdal
 git
 gparted
@@ -20,11 +23,13 @@ krita
 pandoc
 pdfsam
 pgadmin4
+python
 qgis
 qrencode
 r
 remmina
 scribus
+simplescreenrecorder
 sqlitebrowser
 texlive-bibtexextra
 texlive-bin
@@ -40,3 +45,4 @@ vim
 vlc
 xclip
 yay
+zathura
