@@ -10,8 +10,10 @@ dos2unix
 ffmpeg
 filezilla
 flameshot
+freerdp
 gcc-fortran
 gdal
+gedit
 git
 gparted
 gpick
@@ -40,8 +42,10 @@ texlive-formatsextra
 texlive-science
 the_silver_searcher
 thunderbird
+tldr
 tmux
 tree
+unrar
 vim
 vlc
 xclip

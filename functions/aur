@@ -4,7 +4,7 @@
 function aurpackages
 {
     while read F ; do
-        yay -S --noconfirm "$F"
+        yay -S --needed --noconfirm "$F"
     done < $AURPKGS
 
     show_success 'Done.'

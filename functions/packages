@@ -6,7 +6,7 @@ function packages {
     show_info 'Installing...'
     show_warning 'Requires root privileges'
     while read F ; do
-        sudo pacman -S --noconfirm "$F"
+        sudo pacman -S --needed --noconfirm "$F"
     done < $PKGS
 
     show_success 'Done.'

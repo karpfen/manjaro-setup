@@ -2,16 +2,19 @@
 
 function configure {
     show_info 'Copying dot files to home directory...'
-    cp ../dot/.bash_aliases "$HOME/"
-    cp ../dot/.Rprofile "$HOME/"
-    cp ../dot/.bashrc "$HOME/"
-    cp ../dot/.vimrc "$HOME/"
-    cp ../dot/.tmux.conf "$HOME/"
-    cp ../dot/.gitconfig "$HOME/"
-    cp ../dot/.inputrc "$HOME/"
-    cp -r ../dot/.todo "$HOME/"
+    cp dot/.bash_aliases "$HOME/"
+    cp dot/.Rprofile "$HOME/"
+    cp dot/.bashrc "$HOME/"
+    cp dot/.vimrc "$HOME/"
+    cp dot/.tmux.conf "$HOME/"
+    cp dot/.gitconfig "$HOME/"
+    cp dot/.inputrc "$HOME/"
+    cp -r dot/.todo "$HOME/"
 
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+    source /opt/anaconda/bin/activate
+    conda init
 
     show_success 'Copied dotfiles to home directory.'
     whiptail --title "Finished" --msgbox "dot files copied successfully." 8 78
