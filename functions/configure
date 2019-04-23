@@ -16,6 +16,8 @@ function configure {
     source /opt/anaconda/bin/activate
     conda init
 
+    sudo chown -R andreas:andreas /lib/R
+
     show_success 'Copied dotfiles to home directory.'
     whiptail --title "Finished" --msgbox "dot files copied successfully." 8 78
     main
