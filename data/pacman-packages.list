@@ -7,7 +7,9 @@ chromium
 cmake
 curl
 davfs2
+dbeaver
 dos2unix
+evince
 ffmpeg
 filezilla
 flameshot
@@ -26,9 +28,13 @@ krita
 nextcloud-client
 openconnect
 pandoc
+pdfpc
 pdfsam
 pgadmin4
+postgis
+postgresql
 python
+python-pip
 qgis
 qrencode
 r
@@ -42,6 +48,8 @@ texlive-bin
 texlive-core
 texlive-fontsextra
 texlive-formatsextra
+texlive-latexextra
+texlive-pictures
 texlive-science
 the_silver_searcher
 thunderbird
@@ -51,7 +59,6 @@ tree
 unrar
 vim
 vlc
-xclip
 xclip
 yay
 zathura
