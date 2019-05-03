@@ -113,7 +113,7 @@ alias generatePassword='apg -m 20 -x 1 -M SNCL -a 1 -n 1'
 alias histg='history | grep'
 #dump clipboard to file
 alias dclip='xclip -o > clipboard.txt'
-alias t='todo.sh -t -d ~/.todo-txt/config'
+alias t='todo.sh -t -d ~/.todo/config'
 alias rupdate='echo "update.packages (ask = FALSE)" | R --no-save -q'
 alias lll='du -chs *'
 alias ll='ls -lFh'
@@ -125,6 +125,7 @@ alias agi='ag -i'
 alias shutdown='sudo shutdown now'
 alias reboot='sudo reboot'
 alias run='xdg-open'
+alias condasession='source /opt/anaconda/bin/activate'
 
 xhost +local:root > /dev/null 2>&1
 
