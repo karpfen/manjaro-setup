@@ -68,6 +68,7 @@ dtplyr
 e1071
 forcats
 foreach
+forecast
 foreign
 fs
 gdalUtils
