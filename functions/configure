@@ -13,10 +13,12 @@ function configure {
 
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-    source /opt/anaconda/bin/activate
-    conda init
-
     sudo chown -R andreas:andreas /lib/R
+
+    git clone https://github.com/matze/mtheme ~/mtheme
+    make sty -C ~/mtheme
+    make install -C ~/mtheme
+    rm -rf ~/mtheme
 
     show_success 'Copied dotfiles to home directory.'
     whiptail --title "Finished" --msgbox "dot files copied successfully." 8 78
