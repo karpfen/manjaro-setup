@@ -155,6 +155,7 @@ pkgconfig
 pkgload
 plm
 plogr
+plotly
 plyr
 png
 polyclip
