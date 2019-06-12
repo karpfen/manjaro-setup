@@ -127,6 +127,7 @@ alias reboot='sudo reboot'
 alias run='xdg-open'
 alias condasession='source /opt/anaconda/bin/activate'
 alias git_showorigin='git config --get remote.origin.url'
+alias ffplay='ffplay -nodisp -autoexit'
 
 xhost +local:root > /dev/null 2>&1
 
