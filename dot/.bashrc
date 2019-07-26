@@ -189,7 +189,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 function getipaddress {
-    ip route get 8.8.8.8 | awk '{print $3; exit}'
+    ip route get 8.8.8.8 | awk '{print $7; exit}'
 }
 
 if command -v tmux>/dev/null; then
