@@ -11,6 +11,7 @@ fi
 export QT_SCALE_FACTOR=1
 export EDITOR=vim
 export TERM=xterm-256color
+export PGUSER=postgres
 
 colors() {
 	local fgc bgc vals seq0
@@ -190,6 +191,14 @@ fi
 
 function getipaddress {
     ip route get 8.8.8.8 | awk '{print $7; exit}'
+}
+
+function toclipboard {
+if [ -z "$1" ]; then
+    echo "Usage: toclipboard <filename>"
+else
+    xclip -sel clip < $1
+fi
 }
 
 if command -v tmux>/dev/null; then
