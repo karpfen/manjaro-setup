@@ -20,6 +20,9 @@ function configure {
     make install -C ~/mtheme
     rm -rf ~/mtheme
 
+    cd /usr/share/git/credential/gnome-keyring/
+    sudo make
+
     show_success 'Copied dotfiles to home directory.'
     whiptail --title "Finished" --msgbox "dot files copied successfully." 8 78
     main
