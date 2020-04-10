@@ -17,10 +17,11 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'dpelle/vim-LanguageTool'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'chrisbra/csv.vim'
+" Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'jalvesaq/Nvim-R'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -65,9 +66,9 @@ set incsearch		" Incremental search
 
 " Extra config lines 
 set modelines=0
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 set ruler
@@ -94,7 +95,7 @@ set wildmenu
 set wildmode=list:full
 
 " Spell checking
-autocmd FileType latex,tex,md,markdown,Rmd set spell
+autocmd FileType latex,tex,md,markdown,rmd set spell
 set complete +=k
 
 " Configuration for https://github.com/airblade/vim-gitgutter
@@ -106,7 +107,7 @@ cmap w!! w !sudo tee > /dev/null %
 nnoremap <C-L> :nohls<cr>
 
 " Language tool
-let g:languagetool_jar='~/.LanguageTool/LanguageTool-4.1/languagetool-commandline.jar'
+let g:languagetool_jar='~/.vim/bundle/vim-grammarous/misc/LanguageTool-4.5/languagetool.jar'
 nmap gn :lnext<CR>
 nmap gp :lprevious<CR>
 
@@ -154,3 +155,38 @@ function QuoteDelim(char)
  return a:char.a:char."\<Esc>i"
  endif
 endf
+
+:map <F3> :call WC()<CR>
+function! WC()
+    let filename = expand("%")
+    let cmd = "detex " . filename . " | wc -w | tr -d [:space:]"
+    let result = system(cmd)
+    echo result . " words"
+endfunction
+
+"----------------------------------------
+"-------------   Nvim-R   ---------------
+"----------------------------------------
+
+" https://github.com/jcfaria/Vim-R-plugin/issues/204
+let g:ScreenImpl = 'Tmux'
+let g:ScreenShellInitialFocus = 'shell'
+" send selection to R with space bar
+vmap <Space> <Plug>RDSendSelection
+" send line to R with space bar
+nmap <Space> <Plug>RDSendLine
+
+" stop the plugin remapping underscore to '->':
+let R_assign = 0
+
+let R_silent_term = 1
+
+let g:R_in_buffer = 1
+"let g:R_rconsole_width = winwidth("%") / 2
+let g:R_rconsole_width = 100
+let g:R_nvimpager = "horizontal"
+let R_args = ['--no-save', '--quiet']
+let R_tmux_title = 'R'
+let g:R_notmuxconf = 1 "use my .tmux.conf, not the Nvim-r one
+
+let r_syntax_folding = 0
