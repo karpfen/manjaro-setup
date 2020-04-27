@@ -114,7 +114,7 @@ alias histg='history | grep'
 #dump clipboard to file
 alias dclip='xclip -o > clipboard.txt'
 alias t='todo.sh -t -d ~/.todo/config'
-alias rupdate='echo "update.packages (ask = FALSE)" | R --no-save -q'
+alias rupdate='echo "update.packages (ask = FALSE, checkBuilt = TRUE)" | R --no-save -q'
 alias lll='du -chs *'
 alias ll='ls -lFh'
 alias la='ls -lFhA'
@@ -204,3 +204,17 @@ if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
 
+# Bash-completion for psql services
+_complete_psql() {
+    services=$(egrep -o '^\[.+\]' ~/.pg_service.conf | cut -f2 -d[ | cut -f1 -d] | sort)
+    if [[ $services ]]
+    then
+        COMPREPLY=( $( compgen -W "$services" -- ${COMP_WORDS[COMP_CWORD]}) )
+    else
+        echo
+        echo "(no services)"
+        echo -n "> ${COMP_WORDS} "
+    fi
+    return 0
+}
+complete -F _complete_psql psql
