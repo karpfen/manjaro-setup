@@ -118,6 +118,7 @@ alias rupdate='echo "update.packages (ask = FALSE, checkBuilt = TRUE)" | R --no-
 alias lll='du -chs *'
 alias ll='ls -lFh'
 alias la='ls -lFhA'
+alias latest='ls -lFhAt | head'
 alias l='ls -CF'
 alias g='grep'
 alias gi='grep -i'
