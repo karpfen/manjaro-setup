@@ -10,18 +10,20 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+" Plugin 'davidhalter/jedi-vim'
+" Plugin 'chrisbra/csv.vim'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'dpelle/vim-LanguageTool'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'embear/vim-localvimrc'
+Plugin 'jalvesaq/Nvim-R'
+Plugin 'rhysd/vim-grammarous'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'dpelle/vim-LanguageTool'
-Plugin 'rhysd/vim-grammarous'
-Plugin 'edkolev/tmuxline.vim'
-" Plugin 'chrisbra/csv.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'jalvesaq/Nvim-R'
+Plugin 'zxqfl/tabnine-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -78,6 +80,7 @@ set wrap
 set textwidth=80
 " let &colorcolumn=81
 " let &colorcolumn=join(range(81,999),",")
+set nojoinspaces
 set undofile
 set undodir=$HOME/.vim/undo-dir
 set undolevels=1000
@@ -190,3 +193,6 @@ let R_tmux_title = 'R'
 let g:R_notmuxconf = 1 "use my .tmux.conf, not the Nvim-r one
 
 let r_syntax_folding = 0
+
+" localvimrc
+let g:localvimrc_ask = 0
