@@ -24,6 +24,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'zxqfl/tabnine-vim'
+Plugin 'vim-latex/vim-latex'
+Plugin 'preservim/tagbar'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -99,6 +101,7 @@ set wildmode=list:full
 
 " Spell checking
 autocmd FileType latex,tex,md,markdown,rmd set spell
+autocmd FileType tex :TagbarOpen
 set complete +=k
 
 " Configuration for https://github.com/airblade/vim-gitgutter
@@ -113,6 +116,7 @@ nnoremap <C-L> :nohls<cr>
 let g:languagetool_jar='~/.vim/bundle/vim-grammarous/misc/LanguageTool-4.5/languagetool.jar'
 nmap gn :lnext<CR>
 nmap gp :lprevious<CR>
+let g:grammarous#show_first_error = 1
 
 " insert timestamp to document
 nnoremap <buffer> <F4> :r! date "+\%Y-\%m-\%d \%H:\%M:\%S"<cr>
@@ -196,3 +200,7 @@ let r_syntax_folding = 0
 
 " localvimrc
 let g:localvimrc_ask = 0
+
+" vim-latex
+let g:Imap_UsePlaceHolders = 0
+let g:Tex_SmartKeyQuote = 0
