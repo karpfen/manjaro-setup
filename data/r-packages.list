@@ -20,6 +20,7 @@ RGtk2
 RNetCDF
 RPostgreSQL
 RQGIS
+RQuantLib
 RSQLite
 RSpectra
 Rcpp
@@ -40,6 +41,7 @@ boot
 broom
 cairoDevice
 callr
+caret
 cartography
 changepoint
 chron
@@ -87,6 +89,7 @@ ggsci
 ggsignif
 ggthemes
 gifski
+glmnet
 glue
 grDevices
 graphics
@@ -105,6 +108,7 @@ htmlwidgets
 httr
 ibdreg
 igraph
+imputeTS
 intervals
 iterators
 jpeg
