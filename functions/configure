@@ -1,6 +1,8 @@
 #!/bin/bash
 
 function configure {
+    yay --save --sudoloop
+
     show_info 'Copying dot files to home directory...'
     cp dot/.bash_aliases "$HOME/"
     cp dot/.Rprofile "$HOME/"

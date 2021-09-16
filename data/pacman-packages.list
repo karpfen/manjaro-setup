@@ -1,5 +1,6 @@
 at
 audacity
+base-devel
 bash-completion
 blender
 borg
@@ -31,9 +32,11 @@ icmake
 inkscape
 krita
 libgnome-keyring
+make
 manjaro-settings-samba
 nextcloud-client
 noto-fonts
+npm
 openconnect
 opencv
 pandoc
