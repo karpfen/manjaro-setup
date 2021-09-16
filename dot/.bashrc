@@ -129,6 +129,7 @@ alias run='xdg-open'
 alias condasession='source /opt/anaconda/bin/activate'
 alias git_showorigin='git config --get remote.origin.url'
 alias ffplay='ffplay -nodisp -autoexit'
+alias yay_upgrade='yay -Quq | while read p; do yes | yay -S $p || echo $p >> yay-failed.log; done'
 
 xhost +local:root > /dev/null 2>&1
 
