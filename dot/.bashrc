@@ -130,6 +130,7 @@ alias condasession='source /opt/anaconda/bin/activate'
 alias git_showorigin='git config --get remote.origin.url'
 alias ffplay='ffplay -nodisp -autoexit'
 alias yay_upgrade='yay -Quq | while read p; do yes | yay -S $p || echo $p >> yay-failed.log; done'
+alias pwdcopy='pwd | xclip'
 
 xhost +local:root > /dev/null 2>&1
 
@@ -189,6 +190,10 @@ HISTFILESIZE=10000
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+open() {
+    nohup nautilus -w $1 > /dev/null 2>&1 &
+}
 
 function getipaddress {
     ip route get 8.8.8.8 | awk '{print $7; exit}'
